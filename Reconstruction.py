@@ -30,8 +30,8 @@ def box_type(row, col, row_sub, col_sub):
 row_b = 2160
 col_b = 2560
 subregion = 16
-#name = "Hela" ## Hela, MCF10A, U2OS_stained, U2OS_unstained
-name = "MCF10A"
+name = "Hela" ## Hela, MCF10A, U2OS_stained, U2OS_unstained
+#name = "MCF10A"
 #name = "U2OS_stained"
 #name = "U2OS_unstained"
 
@@ -103,8 +103,5 @@ for row in range(len(FOV_row)):
         final_FOV[np.where(final_FOV > 1)] = 1.0
 print('Finsihed reconstruction for this frame in Time: %s' % (time.time() - start))
 print('saving FPM CNN reconstructed phase', time.time() - start)
-tiff = TIFF.open('./Reconstruction/' + name + '_BF9DF20_Floss_reconstruction.tiff', mode='w')
-tiff.write_image(final_FOV)
-tiff.close()
-
-
+plt.imshow(final_FOV, cmap='gray')
+plt.show()
